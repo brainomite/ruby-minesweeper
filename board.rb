@@ -55,6 +55,14 @@ class Board
     @grid[x][y].flag
   end
 
+  def loose?
+    @grid.any? do |row|
+      row.any? do |tile|
+        true if tile.revealed? and tile.is_bomb?
+      end
+    end
+  end
+
   def out_of_bounds?(pos)
     x, y = pos
     return true if x < 0 || y < 0 || x >= @grid.length || y >= @grid.length
@@ -73,4 +81,5 @@ class Board
     end
     nil
   end
+
 end
