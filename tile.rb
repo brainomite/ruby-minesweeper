@@ -34,7 +34,7 @@ class Tile
     elsif is_bomb?
       "B".colorize(:red)
     elsif neighbor_bomb_count > 0
-      neighbor_bomb_count.to_s
+      neighbor_bomb_count.to_s.colorize(:green)
     else
       "_"
     end

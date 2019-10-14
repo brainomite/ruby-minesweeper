@@ -82,4 +82,17 @@ class Board
     nil
   end
 
+  def win?
+    @grid.all? do |row|
+      row.all? do |tile|
+        if !tile.is_bomb? && tile.revealed?
+          true
+        elsif tile.is_bomb? && !tile.revealed?
+          true
+        else
+          false
+        end
+      end
+    end
+  end
 end
