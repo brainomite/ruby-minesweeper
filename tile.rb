@@ -40,10 +40,6 @@ class Tile
     end
   end
 
-  def flag
-    @flagged = true
-  end
-
   def is_bomb?
     @is_bomb
   end
@@ -90,10 +86,9 @@ class Tile
     @revealed
   end
 
-  def unflag
-    @flagged = false
+  def toggle_flag
+    @flagged = !@flagged
   end
-
   #private
 
 

@@ -50,12 +50,12 @@ class Board
     nil
   end
 
-  def flag(pos)
+  def toggle_flag(pos)
     x, y = pos
-    @grid[x][y].flag
+    @grid[x][y].toggle_flag
   end
 
-  def loose?
+  def lost?
     @grid.any? do |row|
       row.any? do |tile|
         true if tile.revealed? and tile.is_bomb?
@@ -82,7 +82,7 @@ class Board
     nil
   end
 
-  def win?
+  def won?
     @grid.all? do |row|
       row.all? do |tile|
         if !tile.is_bomb? && tile.revealed?
